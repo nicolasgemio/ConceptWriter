@@ -8,16 +8,24 @@
   <script src="scripts/repaso.js" defer></script>
 </head>
 <body>
-  <div id="error-message" style="display:none; color:#ff6666; margin: 28px auto 10px auto; font-weight:bold; text-align:center; max-width:680px;" aria-live="assertive"></div>
-  <div id="setup-screen">
+  <div id="error-message" style="display:none; color:#ff6666; margin: 24px auto 8px auto; font-weight:bold; text-align:center; max-width:720px;" aria-live="assertive"></div>
+
+  <div id="setup-screen" class="center-screen">
     <h1>Concept Writer</h1>
-    <textarea id="source-text" rows="3" placeholder="Escribe aquí el texto que quieres practicar" aria-label="Campo de texto para ingresar el texto a practicar"></textarea>
-    <button id="start-btn" onclick="startPractice()" aria-label="Comenzar práctica de escritura">Comenzar</button>
+    <textarea id="source-text" class="form-control" rows="3" placeholder="Escribe aquí el texto que quieres practicar" aria-label="Campo de texto para ingresar el texto a practicar"></textarea>
+    <button id="start-btn" class="btn btn-lg btn-danger mt-3" onclick="startPractice()" aria-label="Comenzar práctica de escritura">Comenzar</button>
   </div>
 
   <div id="practice-screen" style="display: none;">
-    <div id="editable" contenteditable="false" spellcheck="false" autocomplete="off" autocorrect="off" role="textbox" aria-label="Área editable para practicar la copia del texto" tabindex="0"></div>
-    <button id="back-btn" onclick="goBack()" aria-label="Volver a la pantalla inicial">Atrás</button>
+    <div id="practice-bar" class="d-flex justify-content-between align-items-center px-2 py-2">
+      <button id="back-btn" class="btn btn-outline-light btn-sm" onclick="goBack()" aria-label="Volver a la pantalla inicial">
+        &#8592; Atrás
+      </button>
+      <div id="progress-indicator" class="progress-compact"></div>
+    </div>
+    <div class="editable-container">
+      <div id="editable" contenteditable="false" spellcheck="false" autocomplete="off" autocorrect="off" role="textbox" aria-label="Área editable para practicar la copia del texto" tabindex="0"></div>
+    </div>
   </div>
 </body>
 </html>
