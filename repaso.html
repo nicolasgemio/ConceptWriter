@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ConceptWriter</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/repaso.css">
+  <script src="scripts/repaso.js" defer></script>
+</head>
+<body>
+  <div id="setup-screen">
+    <h1>Concept Writer</h1>
+    <textarea id="source-text" rows="3" placeholder="Escribe aquí el texto que quieres practicar" aria-label="Campo de texto para ingresar el texto a practicar"></textarea>
+    <button id="start-btn" onclick="startPractice()" aria-label="Comenzar práctica de escritura">Comenzar</button>
+  </div>
+
+  <div id="practice-screen" style="display: none;">
+    <div id="editable" contenteditable="false" spellcheck="false" autocomplete="off" autocorrect="off" role="textbox" aria-label="Área editable para practicar la copia del texto" tabindex="0"></div>
+    <button id="back-btn" onclick="goBack()" aria-label="Volver a la pantalla inicial">Atrás</button>
+  </div>
+</body>
+</html>
