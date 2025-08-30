@@ -2,6 +2,14 @@ let targetText = "";
 let currentIndex = 0; // Mantiene el progreso incluso al volver atrás
 let editableListenerAdded = false;
 
+// Función para normalizar texto (omitir mayúsculas y tildes)
+function normalizeText(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, ''); // Elimina diacríticos (tildes)
+}
+
 function startPractice() {
   const newText = document.getElementById("source-text").value;
 
@@ -48,7 +56,11 @@ function setupEditableListener() {
 
     // Tecla de caracter
     if (e.key.length === 1) {
-      if (e.key === expectedChar) {
+      // Comparar caracteres normalizados (sin mayúsculas ni tildes)
+      const normalizedTyped = normalizeText(e.key);
+      const normalizedExpected = normalizeText(expectedChar);
+      
+      if (normalizedTyped === normalizedExpected) {
         currentIndex++;
         renderText();
         hideError();
